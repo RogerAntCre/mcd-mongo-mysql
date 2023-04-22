@@ -62,7 +62,7 @@ Respuesta:
 ```sql
 -- Su respuesta aqui:
 
-SELECT language.language_id, language.name, COUNT(film.language_id) as film_count FROM language,film 
+
 WHERE language.language_id = film.language_id 
 GROUP BY film.language_id;
 
