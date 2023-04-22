@@ -37,9 +37,10 @@ Respuesta:
 ```sql
 -- Su respuesta aqui:
 
-SELECT ...
-
-```
+SELECT city.city_id, city.city, count(store_id) as store_count FROM city, store, address
+WHERE store.address_id = address.address_id
+AND address.city_id = city.city_id
+GROUP BY store_id;
 
 2. Listar la cantidad de películas que se hicieron por lenguaje.
 
@@ -61,9 +62,9 @@ Respuesta:
 ```sql
 -- Su respuesta aqui:
 
-SELECT ...
-
-```
+SELECT language.language_id, language.name, COUNT(film.language_id) as film_count FROM language,film 
+WHERE language.language_id = film.language_id 
+GROUP BY film.language_id;
 
 3.  Seleccionar todos los actores que participaron mas de 35 peliculas.
 
@@ -87,9 +88,9 @@ Respuesta:
 ```sql
 -- Su respuesta aqui:
 
-SELECT ...
-
-```
+SELECT actor.actor_id, actor.first_name, actor.last_name, COUNT(film_id) as film_count  from actor, film_actor 
+WHERE actor.actor_id = film_actor.actor_id 
+GROUP BY actor_id;
 
 4. Mostrar el listado de los 10 de actores que mas peliculas realizó en la categoria `Comedy`.
 
